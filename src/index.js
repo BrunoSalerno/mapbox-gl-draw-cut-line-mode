@@ -26,6 +26,7 @@ const CutLineMode = {
     const newFeatures = [newFeature1, newFeature2].map((f) => {
       f.properties = {...f.properties,...properties};
       this.addFeature(this.newFeature(f));
+      return f;
     });
 
     setTimeout(() => {

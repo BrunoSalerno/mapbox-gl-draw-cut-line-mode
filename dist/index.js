@@ -37,11 +37,7 @@ var CutLineMode = {
 
     var newFeatures = [newFeature1, newFeature2].map(function (f) {
       f.properties = _extends({}, f.properties, properties);
-      delete f.properties.id;
-      delete f.properties.length;
-
       _this.addFeature(_this.newFeature(f));
-
       return f;
     });
 

@@ -1,6 +1,6 @@
 {
   "name": "mapbox-gl-draw-cut-line-mode",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A custom mode for MapboxGL Draw to cut lines",
   "main": "dist/index.js",
   "author": "BrunoSalerno",
