@@ -8,7 +8,7 @@ This is a custom mode for Mapbox GL Draw 1.x that adds the LineString cutting/sp
 
 ### Usage
 
-```ruby
+```js
 import CutLineMode from 'mapbox-gl-draw-cut-line-mode';
 
 const modes = MapboxDraw.modes;
