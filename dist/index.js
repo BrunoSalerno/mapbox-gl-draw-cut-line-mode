@@ -26,17 +26,18 @@ var CutLineMode = {
     if (!feature) return;
 
     var id = feature.properties.id;
-    var properties = _extends({}, this.getFeature(id).properties);
 
+    var actualFeature = this.getFeature(id);
+
+    var line = (0, _turf.lineString)(actualFeature.coordinates);
     var cursorAt = (0, _turf.point)([e.lngLat.lng, e.lngLat.lat]);
-
-    var newFeature1 = (0, _turf.lineSlice)((0, _turf.point)(this.firstCoord(feature)), cursorAt, feature);
-    var newFeature2 = (0, _turf.lineSlice)(cursorAt, (0, _turf.point)(this.lastCoord(feature)), feature);
+    var snapped = (0, _turf.pointOnLine)(line, cursorAt);
+    var featureCollection = (0, _turf.lineSplit)(line, snapped);
 
     this.deleteFeature(id);
 
-    var newFeatures = [newFeature1, newFeature2].map(function (f) {
-      f.properties = _extends({}, f.properties, properties);
+    var newFeatures = featureCollection.features.map(function (f) {
+      f.properties = _extends({}, actualFeature.properties);
       _this.addFeature(_this.newFeature(f));
       return f;
     });
@@ -61,13 +62,6 @@ var CutLineMode = {
 
   onKeyUp: function onKeyUp(state, e) {
     if (e.keyCode === 27) return this.changeMode('simple_select');
-  },
-
-  firstCoord: function firstCoord(line) {
-    return line.geometry.coordinates[0];
-  },
-  lastCoord: function lastCoord(line) {
-    return line.geometry.coordinates[line.geometry.coordinates.length - 1];
   }
 };
 

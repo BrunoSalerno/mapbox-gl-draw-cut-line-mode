@@ -1,4 +1,4 @@
-import {point, lineSlice} from "@turf/turf";
+import {point, lineString, pointOnLine, lineSplit} from "@turf/turf";
 
 const CutLineMode = {
   onSetup: function(opts) {
@@ -14,17 +14,18 @@ const CutLineMode = {
     if (!feature) return;
 
     const id = feature.properties.id;
-    const properties = {...this.getFeature(id).properties};
 
+    const actualFeature = this.getFeature(id);
+
+    const line = lineString(actualFeature.coordinates);
     const cursorAt = point([e.lngLat.lng, e.lngLat.lat]);
-
-    const newFeature1 = lineSlice(point(this.firstCoord(feature)), cursorAt, feature);
-    const newFeature2 = lineSlice(cursorAt, point(this.lastCoord(feature)), feature);
+    const snapped = pointOnLine(line, cursorAt);
+    const featureCollection = lineSplit(line, snapped);
 
     this.deleteFeature(id);
 
-    const newFeatures = [newFeature1, newFeature2].map((f) => {
-      f.properties = {...f.properties,...properties};
+    const newFeatures = featureCollection.features.map((f) => {
+      f.properties = {...actualFeature.properties};
       this.addFeature(this.newFeature(f));
       return f;
     });
@@ -49,10 +50,7 @@ const CutLineMode = {
 
   onKeyUp: function(state, e) {
     if (e.keyCode === 27) return this.changeMode('simple_select');
-  },
-
-  firstCoord: (line) => line.geometry.coordinates[0],
-  lastCoord: (line) => line.geometry.coordinates[line.geometry.coordinates.length - 1]
+  }
 }
 
 export default CutLineMode
