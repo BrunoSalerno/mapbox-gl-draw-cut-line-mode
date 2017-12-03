@@ -31,8 +31,7 @@ var CutLineMode = {
 
     var line = (0, _turf.lineString)(actualFeature.coordinates);
     var cursorAt = (0, _turf.point)([e.lngLat.lng, e.lngLat.lat]);
-    var snapped = (0, _turf.pointOnLine)(line, cursorAt);
-    var featureCollection = (0, _turf.lineSplit)(line, snapped);
+    var featureCollection = (0, _turf.lineSplit)(line, cursorAt);
 
     this.deleteFeature(id);
 
