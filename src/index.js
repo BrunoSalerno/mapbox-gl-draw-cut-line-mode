@@ -1,4 +1,4 @@
-import {point, lineString, lineSplit} from "@turf/turf";
+import {point, lineString, pointOnLine, lineSplit} from "@turf/turf";
 
 const CutLineMode = {
   onSetup: function(opts) {
@@ -19,7 +19,8 @@ const CutLineMode = {
 
     const line = lineString(actualFeature.coordinates);
     const cursorAt = point([e.lngLat.lng, e.lngLat.lat]);
-    const featureCollection = lineSplit(line, cursorAt);
+    const snapped = pointOnLine(line, cursorAt);
+    const featureCollection = lineSplit(line, snapped);
 
     this.deleteFeature(id);
 
