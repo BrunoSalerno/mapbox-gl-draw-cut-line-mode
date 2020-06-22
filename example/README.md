@@ -1,5 +1,6 @@
-### Cut line mode example
+## Cut line mode example
 
+### Usage
 - Install dependencies:
 ```
 npm install
@@ -9,7 +10,7 @@ npm install
 
 - Access the example at http://192.168.0.9:8080.
 
-#### Build
+### Build
 ```
 npm run build
 ```
