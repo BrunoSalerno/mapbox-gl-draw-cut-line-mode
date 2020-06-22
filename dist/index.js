@@ -48,7 +48,7 @@ var CutLineMode = {
       });
     }, 10);
 
-    this.changeMode('simple_select');
+    this.exitMode();
   },
 
   toDisplayFeatures: function toDisplayFeatures(state, geojson, display) {
@@ -61,7 +61,12 @@ var CutLineMode = {
   },
 
   onKeyUp: function onKeyUp(state, e) {
-    if (e.keyCode === 27) return this.changeMode('simple_select');
+    if (e.keyCode === 27) return this.exitMode();
+  },
+
+  exitMode: function exitMode(state, e) {
+    this.map.getCanvas().style.cursor = "inherit";
+    return this.changeMode('simple_select');
   }
 };
 
