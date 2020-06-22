@@ -25,6 +25,8 @@ Once a feature is splitted, 2 events are fired:
 - `draw.delete` with the id of the deleted feature
 - `draw.create` with the new (children) features
 
+See a full example in the [example folder](example/).
+
 ### Build
 
 `yarn build` will do it.
