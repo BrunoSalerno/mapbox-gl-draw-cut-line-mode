@@ -12,7 +12,7 @@
   "dependencies": {
     "@mapbox/mapbox-gl-draw": "^1.1.2",
     "mapbox-gl": "^1.11.0",
-    "mapbox-gl-draw-cut-line-mode": "^1.0.4"
+    "mapbox-gl-draw-cut-line-mode": "^1.1.0"
   },
   "devDependencies": {
     "http-server": "^0.12.3",

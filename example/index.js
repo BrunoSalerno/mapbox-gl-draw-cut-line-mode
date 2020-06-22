@@ -29,8 +29,5 @@ map.on('load', function(){
 
   function handleEvent(e) {
     console.log(e);
-    if (e.type == 'draw.delete') {
-      map.getCanvas().style.cursor = 'inherit';
-    }
   }
 });
