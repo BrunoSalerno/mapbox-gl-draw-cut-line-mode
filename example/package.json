@@ -1,0 +1,22 @@
+{
+  "name": "example",
+  "version": "1.0.0",
+  "description": "Run `http-server .`  in this folder.",
+  "main": "dist.js",
+  "scripts": {
+    "build": "webpack --config webpack.config.js",
+    "serve": "http-server ."
+  },
+  "author": "Bruno Salerno",
+  "license": "ISC",
+  "dependencies": {
+    "@mapbox/mapbox-gl-draw": "^1.1.2",
+    "mapbox-gl": "^1.11.0",
+    "mapbox-gl-draw-cut-line-mode": "^1.0.4"
+  },
+  "devDependencies": {
+    "http-server": "^0.12.3",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12"
+  }
+}

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Cut Line mode</title>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+    <link href="https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.css" rel="stylesheet" />
+    <style>
+      body { margin: 0; padding: 0; }
+      #map { position: absolute; top: 0; bottom: 0; width: 100%; }
+      #cutLine {position: absolute; top:10px; left:10px}
+    </style>
+  </head>
+  <body>
+    <link
+      rel="stylesheet"
+      href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.1.2/mapbox-gl-draw.css"
+      type="text/css"
+    />
+    <div id="map"></div>
+    <button id="cutLine" onClick="window.draw.changeMode('cut_line')">Cut Line</div>
+    <script src="./dist.js"></script>
+  </body>
+</html>
