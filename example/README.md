@@ -1,4 +1,4 @@
-## Cut line mode example
+## Cut Line Mode example
 
 ### Usage
 - Install dependencies:
@@ -6,11 +6,16 @@
 npm install
 ```
 
-- Run `npm run serve` in this folder.
+- Set the MapBox access token in `index.js`.
 
-- Access the example at http://192.168.0.9:8080.
-
-### Build
+- Build:
 ```
 npm run build
 ```
+
+- Run the static server:
+```
+npm run serve
+```
+
+- Access the example at http://192.168.0.9:8080.
