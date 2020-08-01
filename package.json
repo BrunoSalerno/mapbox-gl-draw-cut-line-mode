@@ -1,6 +1,6 @@
 {
   "name": "mapbox-gl-draw-cut-line-mode",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "A custom mode for MapboxGL Draw to cut lines",
   "main": "dist/index.js",
   "author": "BrunoSalerno",
@@ -17,6 +17,8 @@
     "babel-preset-stage-2": "^6.24.1"
   },
   "dependencies": {
-    "@turf/turf": "^5.0.4"
+    "@turf/helpers": "^6.1.4",
+    "@turf/line-split": "^5.1.5",
+    "@turf/nearest-point-on-line": "^6.0.2"
   }
 }

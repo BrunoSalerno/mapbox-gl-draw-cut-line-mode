@@ -1,4 +1,6 @@
-import {point, lineString, pointOnLine, lineSplit} from "@turf/turf";
+import { point, lineString } from "@turf/helpers";
+import pointOnLine from "@turf/nearest-point-on-line";
+import lineSplit from "@turf/line-split";
 
 const CutLineMode = {
   onSetup: function(opts) {

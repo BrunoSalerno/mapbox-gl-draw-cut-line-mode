@@ -6,7 +6,17 @@ Object.defineProperty(exports, "__esModule", {
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-var _turf = require("@turf/turf");
+var _helpers = require("@turf/helpers");
+
+var _nearestPointOnLine = require("@turf/nearest-point-on-line");
+
+var _nearestPointOnLine2 = _interopRequireDefault(_nearestPointOnLine);
+
+var _lineSplit = require("@turf/line-split");
+
+var _lineSplit2 = _interopRequireDefault(_lineSplit);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var CutLineMode = {
   onSetup: function onSetup(opts) {
@@ -29,10 +39,10 @@ var CutLineMode = {
 
     var actualFeature = this.getFeature(id);
 
-    var line = (0, _turf.lineString)(actualFeature.coordinates);
-    var cursorAt = (0, _turf.point)([e.lngLat.lng, e.lngLat.lat]);
-    var snapped = (0, _turf.pointOnLine)(line, cursorAt);
-    var featureCollection = (0, _turf.lineSplit)(line, snapped);
+    var line = (0, _helpers.lineString)(actualFeature.coordinates);
+    var cursorAt = (0, _helpers.point)([e.lngLat.lng, e.lngLat.lat]);
+    var snapped = (0, _nearestPointOnLine2.default)(line, cursorAt);
+    var featureCollection = (0, _lineSplit2.default)(line, snapped);
 
     this.deleteFeature(id);
 
